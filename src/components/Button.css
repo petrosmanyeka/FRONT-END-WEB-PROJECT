@@ -1,0 +1,32 @@
+:root{
+    --primary :#fff;
+
+}
+.btn{
+    padding: 80px 200px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.btn--primary{
+    background-color:var(--primary) ;
+    border: 1px;
+    color: aquamarine;
+}
+ .btn--outline{
+     background-color: transparent;
+     color: white;
+     padding: 8px 20px;
+ }
+ .btn--mediun{
+     padding: 8px 20px;
+     font-size: 18px;
+ }
+ .btn--large{
+     padding: 10px 20px;
+     font-size: 20px;
+ }
+ .btn--mediun:hover,.btn--large{
+     background-color: white;
+     color: red;
+     transition: 258ms;
+ } 
