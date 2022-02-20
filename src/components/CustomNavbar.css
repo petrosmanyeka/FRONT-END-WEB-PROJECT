@@ -1,0 +1,10 @@
+nav.navbar, .navbar-default{
+    background-color: green!important;
+}
+ .navbar-default{
+     border: none;
+ }
+ .navbar-default.navbar-toggle{
+     border-color: white;
+ }
+ 
