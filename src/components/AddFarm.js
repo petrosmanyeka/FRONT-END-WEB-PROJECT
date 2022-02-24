@@ -1,51 +1,23 @@
- import React, { useEffect, useState } from 'react'
-import { Link ,useHistory ,useParams} from 'react-router-dom'
-import FarmerServ from '../Service/FarmerServ'
- 
- const AddFarmer = () => {
+import React from 'react'
+import { useState } from 'react'
+export const AddFarm = () => {
+
     const [f_name,setFirstName]=useState('')
     const [l_name,setLastName] = useState('')
     const [gender,setGender] = useState('')
     const [email,setEmail] = useState('')
     const [phoneNumber,setPhoneNumber] = useState('')
     const [age,setAge  ] = useState('')
-    const history = useHistory();
-    const {id} = useParams();
 
-    const saveOrUpdateFarmer =(e)=>{
-       
+    const saveFarmer =(e)=>{
         e.preventDefualt();
         const farmer ={f_name,l_name,gender,email,phoneNumber,age}
-        if(id){
-            FarmerServ.saveOrupdateFarmer(id,farmer).then((Response)=>{
-                history.push('/famer');
-            }).catch(error =>{console.log(error)})
-
-        }
-        else{
-            FarmerServ.createFarmer(farmer).then((Response) =>{
-                console.log(Response.data)
-                history.push('/famer');
-            }
-            ).catch(error =>{console.log(error)})
-    
-
-        }
-       
+        console.log(farmer)
     }
-    useEffect(() =>{
-        FarmerServ.getFarmerById(id).then((Response)=>{
-            setFirstName(Response.data.f_name)
-            setLastName(Response.data.l_name)
-            setGender(Response.data.gender)
-            setEmail(Response.data.email)
-            setPhoneNumber(Response.data.phoneNumber)
-            setAge(Response.data.age)
-        }).catch(error =>{console.log(error)})
-
-    },[])
-   return (
-     <div className="container">
+    
+  return (
+    <div>
+        <div className="container">
          <br></br>
          <div className="row">
              <div className="card col-md-6 offset-md-3 offse-md-3">
@@ -91,24 +63,14 @@ import FarmerServ from '../Service/FarmerServ'
                              </input>
 
                          </div>
-                         <div className="form-group mb-2">
-                             <label className="form-label">First Name</label>
-                             <input
-                               type = "text"
-                               placeholder= "Enter first Name"
-                               name="f_name"
-                               className="form-control"
-                               value ={f_name}
-                               onChange ={(e)=>setFirstName(e.target.value)}
-                                >
-                             </input>
+                        
 
-                         </div>
+                         
                          <div className="form-group mb-2">
                              <label className="form-label">Email</label>
                              <input
                                type = "email"
-                               placeholder= "Enter first Name"
+                               placeholder= "Enter email"
                                name="email"
                                className="form-control"
                                value ={f_name}
@@ -143,8 +105,8 @@ import FarmerServ from '../Service/FarmerServ'
                              </input>
 
                          </div>
-                         <button className="btn btn-success" onClick ={(e)=>saveOrUpdateFarmer(e)}>Submit</button>
-                         <Link to="/farmer" className='btn btn-danger'>Cancel</Link>
+                         
+                         <button className="btn btn-success" onClick ={(e)=>saveFarmer(e)}>Submit</button>
                      </form>
 
                  </div>
@@ -154,7 +116,6 @@ import FarmerServ from '../Service/FarmerServ'
          </div>
          
      </div>
-   )
- }
- 
- export default AddFarmer 
+     </div>
+  )
+}
