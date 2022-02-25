@@ -1,0 +1,40 @@
+.Navbar{
+    height:60px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: green;
+  }
+  .Navbar>.nav-logo{
+    font-weight: 700; 
+    font-size: 21px;
+    margin: 15px;
+    color: #ffff;
+  
+  
+  }
+  .Navbar >.nav-item > a{
+    color: #ffff;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 15px;
+    position: relative;
+    opacity: 0.9;
+  
+  }
+  .Navbar > .nav-item > a:hover{
+    opacity: 1;
+  }
+  .Navbar >.nav-item > a::before{
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    background: #ffff;
+    height: 2px;
+    transition: all 0.45s
+  }
+  .Navbar > .nav-item a:hover::before{
+    width: 100%;
+  }

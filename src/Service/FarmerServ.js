@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const FARMER_BASE_REST_API_URL= 'http:localhost:8080';
+const FARMER_BASE_REST_API_URL= 'http:localhost:6789';
 class FarmerServ{
     getAllFarmer(){
         return axios.get( FARMER_BASE_REST_API_URL);

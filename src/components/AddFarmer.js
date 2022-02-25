@@ -1,5 +1,5 @@
  import React, { useEffect, useState } from 'react'
-import { Link ,useHistory ,useParams} from 'react-router-dom'
+import { Link  ,useParams} from 'react-router-dom'
 import FarmerServ from '../Service/FarmerServ'
  
  const AddFarmer = () => {
@@ -9,7 +9,7 @@ import FarmerServ from '../Service/FarmerServ'
     const [email,setEmail] = useState('')
     const [phoneNumber,setPhoneNumber] = useState('')
     const [age,setAge  ] = useState('')
-    const history = useHistory();
+ 
     const {id} = useParams();
 
     const saveOrUpdateFarmer =(e)=>{
@@ -18,14 +18,14 @@ import FarmerServ from '../Service/FarmerServ'
         const farmer ={f_name,l_name,gender,email,phoneNumber,age}
         if(id){
             FarmerServ.saveOrupdateFarmer(id,farmer).then((Response)=>{
-                history.push('/famer');
+               
             }).catch(error =>{console.log(error)})
 
         }
         else{
             FarmerServ.createFarmer(farmer).then((Response) =>{
                 console.log(Response.data)
-                history.push('/famer');
+                
             }
             ).catch(error =>{console.log(error)})
     

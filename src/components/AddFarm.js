@@ -1,4 +1,7 @@
 import React from 'react'
+
+import FarmerzServic from'../Service/FarmerzServic.js'
+
 import { useState } from 'react'
 export const AddFarm = () => {
 
@@ -8,11 +11,22 @@ export const AddFarm = () => {
     const [email,setEmail] = useState('')
     const [phoneNumber,setPhoneNumber] = useState('')
     const [age,setAge  ] = useState('')
+ 
+
+    
 
     const saveFarmer =(e)=>{
         e.preventDefualt();
         const farmer ={f_name,l_name,gender,email,phoneNumber,age}
-        console.log(farmer)
+
+        
+        FarmerzServic.createFarmer(farmer).then((Response) =>{
+            console.log(Response.data)
+            
+        }
+        ).catch(error =>{console.log(error)})
+
+        
     }
     
   return (
@@ -73,7 +87,7 @@ export const AddFarm = () => {
                                placeholder= "Enter email"
                                name="email"
                                className="form-control"
-                               value ={f_name}
+                               value ={email}
                                onChange ={(e)=>setEmail(e.target.value)}
                                 >
                              </input>
